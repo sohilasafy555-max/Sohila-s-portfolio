@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohila Safie Eldeen Ali - Content Creator & Social Media Strategist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #a93979;
+            --secondary-color: #8b2f65;
+            --accent-color: #f59e0b;
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #a93979 0%, #8b2f65 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #a93979 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(169, 57, 121, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .highlight {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card-1 {
+            top: 50px;
+            left: 50px;
+            width: 250px;
+        }
+
+        .card-2 {
+            top: 200px;
+            right: 30px;
+            width: 250px;
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 600px;
+            background: var(--gradient-1);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, rgba(169, 57, 121, 0.05) 0%, rgba(139, 47, 101, 0.05) 100%);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(169, 57, 121, 0.2);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .skill-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(169, 57, 121, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .skill-item::before {
+            content: '▸';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0.8rem;
+            font-weight: bold;
+        }
+
+        .skill-item:hover {
+            background: rgba(169, 57, 121, 0.2);
+            transform: translateX(10px);
+        }
+
+        .clients {
+            padding: 8rem 0;
+        }
+
+        .company-section {
+            margin-bottom: 6rem;
+            padding: 3rem;
+            background: rgba(169, 57, 121, 0.05);
+            border-radius: 25px;
+            border: 1px solid rgba(169, 57, 121, 0.2);
+        }
+
+        .company-name {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .company-duration {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .client-item {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(169, 57, 121, 0.2);
+        }
+
+        .client-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .client-content {
+            padding: 2rem;
+        }
+
+        .client-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .client-duration {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+.client-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.client-photos a {
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    aspect-ratio: 1080 / 1950;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.client-photos a:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-1);
+    background-size: cover;
+    background-position: center;
+    
+}
+.tactics-client .client-photos a {
+    aspect-ratio: 1080 / 1250 !important;
+}
+
+.webz-client .client-photos a {
+    aspect-ratio: 1080 / 1655 !important;
+}
+        .project-details p {
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        .project-details strong {
+            color: var(--primary-color);
+        }
+
+        .services {
+            padding: 8rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(169, 57, 121, 0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .tools {
+            padding: 8rem 0;
+            background: rgba(139, 47, 101, 0.05);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tool-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(169, 57, 121, 0.2);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-10px);
+            background: rgba(169, 57, 121, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .tool-item h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact {
+            padding: 8rem 0;
+            background: var(--gradient-1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(169, 57, 121, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .about-content,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid,
+            .tools-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="loading-text">Creating Magic...</div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Sohila Safie</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#clients" class="nav-link">Projects</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#tools" class="nav-link">Tools</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>Sohila <span class="highlight">Safie Eldeen Ali</span></h1>
+                <p class="hero-subtitle">"Making brands scroll-stopping since 2022"</p>
+                
+                <!-- <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div> -->
+                
+                <a href="#contact" class="btn">Let's Create Together</a>
+            </div>
+            
+            <div class="hero-visual fade-in">
+                <div class="floating-card card-1">
+                    <div class="card-icon">📝</div>
+                    <h3>Content Creator</h3>
+                    <p>Compelling copy that converts</p>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">📊</div>
+                    <h3>Social Media Specialist</h3>
+                    <p>Data-driven insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <p class="section-subtitle">Content creator and social media strategist passionate about turning brands into everyone's favorite follow</p>
+            </div>
+            
+            <div class="about-content fade-in">
+               <div class="about-image" style="background-image: url('soso.jpg'); background-size: cover; background-position: center;">
+</div>
+                <div class="about-text">
+                    <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1rem;">Personal Info</h3>
+                    <p>Hi, I'm Sohila Safie Eldeen Ali, a Cairo-based Content Creator and Social Media Specialist. I graduated with a Bachelor's degree in Mass Communication from Cairo University's English Section in 2024, specializing in Marketing.</p>
+                    
+                    <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1rem; margin-top: 2rem;">Experience</h3>
+                    <p>I am a Content creator & Social Media Specialist with 2 years' experience, responsible for developing and executing social media strategies, create engaging content, managing social media accounts, designing campaigns, and producing visual content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Skills & <span class="highlight">Expertise</span></h2>
+            <p class="section-subtitle">A comprehensive skill set combining creativity, strategy, and technical expertise</p>
+        </div>
+        
+        <div class="skills-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="skill-category fade-in">
+                <h3 class="skill-title">Content Creation & Strategy</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Content Strategy & content plan (SOSTAC Framework)</li>
+                    <li class="skill-item">Content writing & Copywriting</li>
+                    <li class="skill-item">Video Scripting & Storytelling</li>
+                    <li class="skill-item">Content Calendar Planning</li>
+                    <li class="skill-item">Trend Research & Analysis</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3 class="skill-title">Technical Skills</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Canva (Design)</li>
+                    <li class="skill-item">AI Content Tools Integration</li>
+                    <li class="skill-item">Meta Business Suite</li>
+                    <li class="skill-item">Analytics & Reporting</li>
+                    <li class="skill-item">Adobe Premiere Pro (Video Editing)</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3 class="skill-title">Soft Skills</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Creative Problem Solving</li>
+                    <li class="skill-item">Client Communication</li>
+                    <li class="skill-item">Time Management & Multitasking</li>
+                    <li class="skill-item">Team Collaboration</li>
+                    <li class="skill-item">Adaptability to Trends</li>
+                    <li class="skill-item">Performance Analysis & Optimization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+    </section>
+
+   <section <section id="clients" class="clients">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Clients & <span class="highlight">Projects</span></h2>
+            <p class="section-subtitle">Real campaigns, real results. Here's a detailed look at my recent work with different agencies and the specific clients I've helped grow through strategic content creation.</p>
+        </div>
+        
+        <!-- Pixi Agency -->
+        <div class="company-section fade-in">
+            <h3 class="company-name">🏢 Pixi Agency</h3>
+            <p class="company-duration">August 2025 - Present</p>
+            
+            <div class="clients-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div class="client-item">
+                    <div class="client-content">
+                        <div class="client-name">Bazarista</div>
+                        <div class="client-duration">Aug 2025</div>
+                        <div class="client-photos">
+                            <a href="https://www.instagram.com/p/DNVkj1esbMw/?igsh=MWt5aXM2cnNveTljOA==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111241.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DNhBhnmMQbg/?igsh=MTdlbWRnNHF4OWd0eA==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111226.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DNloSgns0Qo/?igsh=MXN0Z29xeGVvNzRuNw==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111155.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DN3EckaWpMN/?igsh=d3E2N3hocGl2ZGt2" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111208.jpg)"></div>
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <p><strong>Overview:</strong> Comprehensive marketing campaign for a month-long bazaar event in Heliopolis featuring diverse vendors specializing in fashion, clothing, accessories, home goods, oils, food, beverages, and stock items. Campaign focused on event awareness and vendor promotion.</p>
+                            <!-- <p><strong>Key Achievements:</strong> 35% increase in product inquiries, 28% boost in social engagement</p>
+                            <p><strong>Skills:</strong> E-commerce Marketing, Product Photography, Customer Engagement</p> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="client-item">
+                    <div class="client-content">
+                        <div class="client-name">Expand Franchise</div>
+                        <div class="client-duration">Sep 2025</div>
+                        <div class="client-photos">
+                            <a href="https://www.instagram.com/p/DOvqX4ME5ja/?igsh=MW12aG1xcDRka3d3cQ==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(galal.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DO8WK08iKZS/?igsh=MXdwcmhnc284NjZqdw==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(agreement.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DO_ntBmCIIN/?igsh=MXByNG50NWIwNmF5OA==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_110959.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DO_vgPEiHAM/?igsh=MWo2Yjc5cnY0bTZlcw==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_110946.jpg)"></div>
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <p><strong>Overview:</strong>Marketing campaign for Egypt's first-ever franchise exhibition, connecting investors with business owners. Campaign included pre-event promotion, post-event coverage, and strategic marketing to attract potential franchisees and investors.</p>
+                            <!-- <p><strong>Key Achievements:</strong> 40% increase in franchise inquiries, improved brand positioning</p>
+                            <p><strong>Skills:</strong> B2B Marketing, Franchise Development, Lead Generation</p> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="client-item">
+                    <div class="client-content">
+                        <div class="client-name">Gola Gallery</div>
+                        <div class="client-duration">Aug 2025 - Present</div>
+                        <div class="client-photos">
+                            <a href="https://www.instagram.com/p/DOn5W9vCN7j/?igsh=ZXR5ajhlaXc2b3Vt" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(gola\ classic\ .jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/p/DOn4KxUiPPR/?igsh=MmlzNnk1MzlzOGs5" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(gola\ moden\ .jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DO8ansSiF3p/?igsh=dm14cXZoOXQxMGRj" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111514.jpg)"></div>
+                            </a>
+                            <a href="https://www.facebook.com/share/v/174xstWPA8/" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111342.jpg)"></div>
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <p><strong>Overview:</strong> Full social media management for a furniture and décor manufacturer specializing in modern and classic designs. Responsible for showcasing complete collections of salons, living room sets, and custom woodwork through engaging visual content.</p>
+                            <!-- <p><strong>Key Achievements:</strong> 50% increase in gallery visits, enhanced online art community</p>
+                            <p><strong>Skills:</strong> Cultural Marketing, Visual Storytelling, Event Promotion</p> -->
+                        </div>
+                    </div>
+                </div>
+                
+               <div class="client-item webz-client">
+                    <div class="client-content">
+                        <div class="client-name">Webz</div>
+                        <div class="client-duration">Aug 2025</div>
+                        <div class="client-photos" style="display: flex; justify-content: center;">
+                            <a href="https://www.facebook.com/share/p/17A7w15Qsj/" target="_blank" rel="noopener noreferrer" style="width: 50%;">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111055.jpg)"></div>
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <p><strong>Overview:</strong> Social media content for a Qatar-based tax services company specializing in tax payments, tax declarations, business licensing, and financial compliance for clients in the Qatari market.</p>
+                            <!-- <p><strong>Key Achievements:</strong> 45% increase in service inquiries, improved technical brand image</p>
+                            <p><strong>Skills:</strong> Tech Marketing, Technical Content, Service Promotion</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pensact B2B Agency -->
+        <div class="company-section fade-in">
+            <h3 class="company-name">🏭 Pensact B2B Agency</h3>
+            <p class="company-duration">January 2025 - June 2025</p>
+            
+            <div class="clients-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div class="client-item">
+                    <div class="client-content">
+                        <div class="client-name">FlowOptin (Personal Brand)</div>
+                        <div class="client-duration">Jan 2025 - Jun 2025</div>
+                        <div class="client-photos">
+                            <a href="https://www.instagram.com/p/DIwXhrYtfHd/?igsh=MWVvMmJ0dThlc3k2MA==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111138.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DJPGyxCoP5u/?igsh=M2hqNzMxaDFwbzF6" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111121.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DJURAIzIEZj/?igsh=MTU2NWZsMnd2NGdkYg==" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_111109.jpg)"></div>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DJZTryUo5rW/?igsh=bHAwaHFtczh0dmtx" target="_blank" rel="noopener noreferrer">
+                                <div class="photo-placeholder" style="background-image: url(IMG_20251001_112753.jpg)"></div>
+                            </a>
+                        </div>
+                        <div class="project-details">
+                            <p><strong>Overview:</strong>End-to-end personal brand development as affiliate marketing for Notion productivity tools community engagement targeting entrepreneurs and students seeking productivity solutions.</p>
+                            <p><strong>Key Achievements:</strong> Reached 2,000 organic reach in just one week.
+ successful affiliate conversions</p>
+                            <p><strong>Skills:</strong> Personal Branding, Affiliate Marketing, Managed complete brand cycle independently including brainstorming, design, video editing, content scheduling, analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Tactics Digital Marketing -->
+<div class="company-section fade-in">
+    <h3 class="company-name">🎯 Tactics Digital Marketing</h3>
+    <p class="company-duration">December 2024</p>
+    
+    <div class="clients-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+        <div class="client-item">
+            <div class="client-content">
+                <div class="client-name">Ezzi Tools (Premium Indian Client)</div>
+                <div class="client-duration">Dec 2024</div>
+                <div class="client-photos">
+                    <a href="https://www.instagram.com/p/DDXbT1yK9Pt/?igsh=MTZwaXp5dGNleTBlMA==" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(IMG_20251001_112924.jpg)"></div>
+                    </a>
+                    <a href="https://www.instagram.com/p/DDev82iIt8A/?igsh=MWwzbnhlMDRrNDRyOA==" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(IMG_20251001_112939.jpg)"></div>
+                    </a>
+                    <a href="https://www.instagram.com/p/DDpU37et-9O/?igsh=enE3eXo5NmNxNXlh" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(IMG_20251001_112953.jpg)"></div>
+                    </a>
+                    <a href="https://www.instagram.com/p/DDzLcBUMd5x/?igsh=b3RlbDFjNXJ5ZmNi" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(IMG_20251001_113008.jpg)"></div>
+                    </a>
+                </div>
+                <div class="project-details">
+                    <p><strong>Overview:</strong> Brand awareness campaign for a premium Indian power and hand tools brand preparing for market entry in Egypt. Content strategy focused on product education and brand positioning in the Egyptian market.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="client-item tactics-client">
+            <div class="client-content">
+                <div class="client-name">Agency itself</div>
+                <div class="client-duration">Dec 2024</div>
+                <div class="client-photos">
+                    <a href="https://www.facebook.com/share/p/1NwMdryj6X/" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(rnb.jpg)"></div>
+                    </a>
+                    <a href="https://www.facebook.com/share/p/1CD7NdnmFZ/" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(prokar.jpg)"></div>
+                    </a>
+                    <a href="https://www.facebook.com/share/p/1AvMmzsnPg/" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(golden.jpg)"></div>
+                    </a>
+                    <a href="https://www.facebook.com/share/p/1EhysrKTfx/" target="_blank" rel="noopener noreferrer">
+                        <div class="photo-placeholder" style="background-image: url(IMG_20251001_113206.jpg)"></div>
+                    </a>
+                </div>
+                <div class="project-details">
+                    <p><strong>Overview:</strong> Portfolio showcase and case study content highlighting agency capabilities and successful client collaborations to attract potential clients and demonstrate marketing expertise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Services I <span class="highlight">Offer</span></h2>
+            <p class="section-subtitle">Comprehensive content creation and social media management services tailored to your brand's unique needs</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <h3 class="service-title">Strategy & Planning</h3>
+                <p class="service-description">SOSTAC framework implementation, competitor analysis, content calendar development, and performance goal setting</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3 class="service-title">Content Creation</h3>
+                <p class="service-description">Copywriting, video scripting, carousel design, reel production, and visual content development</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3 class="service-title">Research & Analysis</h3>
+                <p class="service-description">Market research, trend analysis, audience insights, competitor monitoring, and performance tracking</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3 class="service-title">Platform Management</h3>
+                <p class="service-description">Daily posting, community management, hashtag optimization, and cross-platform content adaptation</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3 class="service-title">Campaign Optimization</h3>
+                <p class="service-description">A/B testing, performance analysis, strategy refinement, and ROI improvement recommendations</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <h3 class="service-title">Video Production</h3>
+                <p class="service-description">Reel editing, motion graphics, video storytelling, and multimedia content creation using professional tools</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="tools" class="tools">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Tools & <span class="highlight">Technologies</span></h2>
+                <p class="section-subtitle">Professional tools I use to create, schedule, and analyze content</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-item fade-in">
+                    <h3>Adobe Premiere Pro</h3>
+                </div>
+                <div class="tool-item fade-in">
+                    <h3>Canva Pro</h3>
+                </div>
+                <div class="tool-item fade-in">
+                    <h3>Meta Business Suite</h3>
+                </div>
+                <div class="tool-item fade-in">
+                    <h3>AI Content Tools (ChatGpt & claude)</h3>
+                </div>
+                <div class="tool-item fade-in">
+                    <h3>Analytics and Reports Tools (Agorapulse)</h3>
+                </div>
+            </div>
+            <div class="fade-in" style="text-align: center; margin-top: 3rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
+                I leverage cutting-edge tools and technologies to create compelling content and drive results.
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="fade-in">Let's Create Something Amazing Together</h2>
+                <p class="fade-in">Ready to turn your brand into everyone's favorite follow? I'm always excited to work on new projects that challenge creativity and drive real results.</p>
+                
+                <a href="mailto:sohilasafy69@gmail.com" class="btn fade-in">Get In Touch</a>
+                
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:sohilasafy69@gmail.com" style="color: inherit; text-decoration: none;">sohilasafy69@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📱 Phone</h3>
+                        <p><a href="tel:01122688667" style="color: inherit; text-decoration: none;">01122688667</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>💼 LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/sohila-safie-789240311" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">linkedin.com/in/sohila-safie-789240311</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sohila Safie Eldeen Ali. All rights reserved. | Crafted with ❤️ for amazing brands</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 1500);
+        });
+
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-card');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.1 + (index * 0.05);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = stat.textContent.includes('+') ? 
+                    parseInt(stat.textContent.replace(/[^0-9]/g, '')) : 
+                    parseInt(stat.textContent.replace(/[^0-9]/g, ''));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        if (stat.textContent.includes('+')) {
+                            stat.textContent = target + '+';
+                        } else if (stat.textContent.includes('%')) {
+                            stat.textContent = target + '%';
+                        } else {
+                            stat.textContent = target + '+';
+                        }
+                        clearInterval(timer);
+                    } else {
+                        if (stat.textContent.includes('+')) {
+                            stat.textContent = Math.floor(current) + '+';
+                        } else if (stat.textContent.includes('%')) {
+                            stat.textContent = Math.floor(current) + '%';
+                        } else {
+                            stat.textContent = Math.floor(current) + '+';
+                        }
+                    }
+                }, 40);
+            });
+        }
+
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroObserver.observe(heroSection);
+        }
+
+        function createMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const navContainer = document.querySelector('.nav-container');
+            
+            if (window.innerWidth <= 768) {
+                if (!document.querySelector('.mobile-menu-toggle')) {
+                    const toggleBtn = document.createElement('button');
+                    toggleBtn.className = 'mobile-menu-toggle';
+                    toggleBtn.innerHTML = '☰';
+                    toggleBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        color: white;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    toggleBtn.addEventListener('click', () => {
+                        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '100%';
+                        navMenu.style.left = '0';
+                        navMenu.style.right = '0';
+                        navMenu.style.background = 'rgba(15, 15, 35, 0.98)';
+                        navMenu.style.padding = '2rem';
+                        navMenu.style.borderRadius = '0 0 15px 15px';
+                    });
+                    
+                    navContainer.appendChild(toggleBtn);
+                }
+            }
+        }
+
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+
+        console.log('🚀 Sohila\'s Portfolio loaded successfully!');
+    </script>
+</body>
+</html>
